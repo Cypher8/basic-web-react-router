@@ -16,4 +16,22 @@ service.addUser = async (data) => {
     return res.json();
 }
 
+service.updateUser = async (data, id) => { //id = 2
+    const res = await fetch(`https://reqres.in/api/users/${id}`, {
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data),
+    });
+    return res.json();
+}
+
+service.deleteUser = async (id) => { //id = 2
+    const res = await fetch(`https://reqres.in/api/users/${id}`, {
+        method: 'DELETE',
+    });
+    return res.json();
+}
+
 export default service;
